@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   aim ="Your perfect banking partner"
-  account ="Account Number Please"
-  acno ="" //component class can be fetched using this keyword 
+  
+  acno ="Account Number Please" //component class can be fetched using this keyword 
   pwd=""
   userdata:any = {
     1000: { accno: 1000, password: "userone", balance: 5000 },
@@ -20,19 +20,19 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  accChange(event:any){
-    //console.log(event.target.value)
-    this.acno = event.target.value
-    console.log(this.acno);
-  }
-  pwdChange(event:any){
-    this.pwd = event.target.value
-    console.log(this.pwd);
-  }
- login(a:any,p:any){
-    console.log(a,p);
-    var accno = a.value;
-    var pswd = p.value ;
+  // accChange(event:any){
+  //   //console.log(event.target.value)
+  //   this.acno = event.target.value
+  //   console.log(this.acno);
+  // }
+  // pwdChange(event:any){
+  //   this.pwd = event.target.value
+  //   console.log(this.pwd); 
+  // }
+ login(){
+    //console.log(a,p);
+    var accno = this.acno;
+    var pswd = this.pwd ;
     console.log(accno,pswd);
     let dataset = this.userdata;
     if (accno in dataset) {
