@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* .login{
+    background-color:rgb(4, 0, 255); 
+   
+} */
+
+#bank{
+    position: relative;
+    top:85px;
+    background-color:chartreuse; 
+    padding: 44px;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+   
+}
+
+.btn1{
+    width:300px;
+}
+
+.home{
+    box-sizing: content-box;
+    background-color: rgb(84, 218, 184);
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top:23px;
+
+}
+
+
+.buk{
+    width:300px;
+}
