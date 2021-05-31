@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
     this.pwd = event.target.value
     console.log(this.pwd);
   }
- login(){
-    var accno = this.acno;
-    var pswd = this.pwd ;
+ login(a:any,p:any){
+    console.log(a,p);
+    var accno = a.value;
+    var pswd = p.value ;
+    console.log(accno,pswd);
     let dataset = this.userdata;
     if (accno in dataset) {
       if (pswd == dataset[accno]["password"]){
@@ -39,9 +41,9 @@ export class LoginComponent implements OnInit {
       else{
         alert("Incorrect password")}
    
-    }
+       }
     else{
-      alert("Invalid password")}  
+      alert("Invalid account")}  
   }
 }
 
