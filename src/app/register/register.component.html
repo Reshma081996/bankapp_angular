@@ -3,10 +3,12 @@
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4"id="bank">
-      <h4>Welcome to Sbk bank</h4> <br><h5>{{aim}}</h5>
+      <h4>Welcome to Sbk bank</h4> <br>
 
 
         <div class="form-group">
+        <label for="exampleInputPassword1">Username</label>
+          <input type="password" class="form-control btn1" [(ngModel)]="uname" placeholder="User Name" >
           <label for="exampleInputEmail1">Account Number</label>
           <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
             placeh older="Enter Account no"  [(ngModel)]="acno">
@@ -20,8 +22,8 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-        <input type="button" class="btn btn-primary" value="LOGIN" (click)='login()'><br>
-        <input type="button" class="btn btn-success" value="CREATE ACCOUNT" (click)='register()'>
+        <input type="button" class="btn btn-primary" value="Register" (click)='register()'><br>
+       
       </div>
 
       <div class="col-4"></div>
