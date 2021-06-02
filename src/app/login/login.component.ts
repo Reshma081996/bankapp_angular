@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,13 @@ export class LoginComponent implements OnInit {
   
   acno ="Account Number Please" //component class can be fetched using this keyword 
   pwd=""
-  userdata:any = {
-    1000: { accno: 1000, password: "userone", balance: 5000 },
-    1001: { accno: 1001, password: "usertwo", balance: 5000 },
-    1002: { accno: 1002, password: "userthree", balance: 5000 }
-}
+//   userdata:any = {
+//     1000: { accno: 1000, password: "userone", balance: 5000 },
+//     1001: { accno: 1001, password: "usertwo", balance: 5000 },
+//     1002: { accno: 1002, password: "userthree", balance: 5000 }
+// }
 
-  constructor( private router:Router) { }
+  constructor( private router:Router,private dataService:DataService) { }
 
   ngOnInit(): void {
   }
@@ -35,17 +36,26 @@ export class LoginComponent implements OnInit {
     var accno = this.acno;
     var pswd = this.pwd ;
     console.log(accno,pswd);
-    let dataset = this.userdata;
-    if (accno in dataset) {
-      if (pswd == dataset[accno]["password"]){
-        alert("Succcessfully logged in")}
-      else{
-        alert("Incorrect password")}
+    
+    const result = this.dataService.login(accno,pswd);
+    if (result){
+      alert("Succcessfully logged in")
+      this.router.navigateByUrl("dashboard")} 
+  
    
-       }
-    else{
-      alert("Invalid account")}  
+  //   if (accno in dataset) {
+  //     if (pswd == dataset[accno]["password"]){
+  //       alert("Succcessfully logged in")
+  //       this.router.navigateByUrl("dashboard")}
+        
+  //     else{
+  //       alert("Incorrect password")}
+   
+  //      }
+  //   else{
+  //     alert("Invalid account")}  
   }
+
   register(){
     this.router.navigateByUrl("register");
   }

@@ -1,0 +1,59 @@
+<div class="container login" style="color:blue">
+   
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4"id="bank">
+      <h4>Welcome to Sbk bank</h4><h5>Deposit Form</h5>
+        <form (ngSubmit)="deposit()">
+      
+        <div class="form-group">
+        
+          <label for="exampleInputEmail1">Account Number</label>
+          <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
+            placeholder="Enter Account no"  [(ngModel)]="acno" name="acno">
+           
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control btn1" [(ngModel)]="pwd" id="pwd" placeholder="Password" name="pwd" ><br>
+            <label >Amount</label>
+            <input type ="text" class="form-control btn1" name="amt"  [(ngModel)]="amt"><br>    
+       
+        <input type="submit" class="btn btn-primary" value="Deposit" style="width:300px;" ><br>
+        
+       
+      </div>
+    </form>
+    </div>
+      <div class="col-4"></div>
+    </div>
+ 
+</div>
+ <div>........................</div>
+<div class="container" style="color:blue" >
+   
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4"id="bank">
+      <h4>Welcome to Sbk bank</h4><h5>Withdraw Form</h5>
+        <form (ngSubmit)="withdraw()">
+      
+        <div class="form-group">
+        
+          <label for="exampleInputEmail1">Account Number</label>
+          <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
+            placeholder="Enter Account no"  [(ngModel)]="wacno" name="acno">
+           
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control btn1" [(ngModel)]="wpwd" id="wpwd" placeholder="Password" name="pwd" ><br>
+            <label >Amount</label>
+            <input type ="text" class="form-control btn1" name="amt"  [(ngModel)]="wamt"><br>    
+       
+        <input type="submit" class="btn btn-primary" value="Withdraw" style="width:300px;" ><br>
+        
+       
+      </div>
+    </form>
+    </div>
+      <div class="col-4"></div>
+    </div>
+
+</div>
