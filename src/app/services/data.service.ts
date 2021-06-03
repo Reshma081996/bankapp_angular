@@ -78,8 +78,16 @@ login(accno:any,pswd:any){
     var amount = parseInt(amt);
     if( accno in dataset){
       if (pwd ==  dataset[accno]["password"]){
-        dataset[accno]["amount"]-= amount
-        return dataset[accno]["amount"]
+        if (amount<dataset[accno]["amount"]){
+          dataset[accno]["amount"]-= amount
+          return dataset[accno]["amount"]
+        }
+        else{
+          alert("insufficient balance")
+          return false;
+        }
+
+       
 
       }
       else{
