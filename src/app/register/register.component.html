@@ -4,22 +4,25 @@
       <div class="col-4"></div>
       <div class="col-4"id="bank">
       <h4>Welcome to Sbk bank</h4> <br>
-<form (ngSubmit)="register()">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
       
         <div class="form-group">
         <label for="exampleInputPassword1">Username</label>
-          <input type="text" class="form-control btn1" [(ngModel)]="uname" placeholder="User Name" name="uname" >
+          <input type="text" class="form-control btn1" formControlName="uname" placeholder="User Name" name="uname" >
           <label for="exampleInputEmail1">Account Number</label>
-          <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
-            placeh older="Enter Account no"  [(ngModel)]="acno" name="acno">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-       
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control btn1" [(ngModel)]="pwd" id="pwd" placeholder="Password" name="pwd" ><br>
-       
+          <div *ngIf="(this.registerForm.get('uname')?.touched || this.registerForm.get('uname')?.dirty) && (this.registerForm.get('uname')?.errors)" class="errors">Invalid Username</div> 
           
-       
-        <input type="submit" class="btn btn-primary" value="Register" style="width:300px;"><br>
+          <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
+            placeholder="Enter Account no" formControlName="accno" name="acno">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <div *ngIf="(this.registerForm.get('accno')?.touched || this.registerForm.get('accno')?.dirty) && (this.registerForm.get('accno')?.errors)" class="errors">Invalid Accountnumber</div> 
+
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control btn1" formControlName="pswd" id="pwd" placeholder="Password" name="pwd" ><br>
+          <div *ngIf="(this.registerForm.get('pswd')?.touched || this.registerForm.get('pswd')?.dirty) && (this.registerForm.get('pswd')?.errors)" class="errors">Invalid Password</div> 
+
+          
+                     <input type="submit" class="btn btn-primary" value="Register" style="width:300px;"><br>
         <a class="textfp" routerLink="" >Log in</a>
        
       </div>

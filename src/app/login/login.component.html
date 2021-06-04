@@ -5,16 +5,19 @@
       <div class="col-4"id="bank">
       <h4>Welcome to Sbk bank</h4> <br><h5>{{aim}}</h5>
 
-      <form (ngSubmit)="login()">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group">
           <label for="exampleInputEmail1">Account Number</label>
           <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
-            placeholder="Enter Account no"  [(ngModel)]="acno" name="acno">
-          
+            placeholder="Enter Account no" formControlName="acno" name="acno">
+            <div *ngIf="(this.loginForm.get('acno')?.touched||this.loginForm.get('acno')?.dirty) && (this.loginForm.get('acno')?.errors)" class="errors">Invalid Account number</div> 
+
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control btn1" [(ngModel)]="pwd" id="pwd" placeholder="Password" name="pwd">
+          <input type="password" class="form-control btn1" formControlName="pwd" id="pwd" placeholder="Password" name="pwd">
+        <div *ngIf="(this.loginForm.get('pwd')?.touched||this.loginForm.get('pwd')?.dirty) && (this.loginForm.get('pwd')?.errors)" class="errors">Invalid Password</div> 
+
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
+  currentuser=""
   userdata:any = {
     1000: { name:"ajay", accno: 1000, password: "userone", amount: 5000 },
     1001: { name:"vijay",accno: 1001, password: "usertwo", amount: 3000 },
@@ -11,26 +12,23 @@ export class DataService {
 }
   constructor() { }
 
-login(accno:any,pswd:any){
-  let dataset = this.userdata
-  if (accno in dataset){
-    if (pswd == dataset[accno]["password"]){
-      return true;
+  login(accno:any,pswd:any){
+    let dataset = this.userdata
+    if (accno in dataset){
+      if (pswd == dataset[accno]["password"]){
+        this.currentuser = dataset[accno]["name"]
+        return true;
+      }
+      else{
+        alert("Incorrect password")
+        return false;
+      }
     }
     else{
-      alert("Incorrect password")
+      alert("Incorrect account")
       return false;
     }
   }
-  else{
-    alert("Incorrect account")
-    return false;
-  }
-}
-
-
-
-
 
 
   register(name:any,accno:any,password:any){

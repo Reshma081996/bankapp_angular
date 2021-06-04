@@ -1,22 +1,28 @@
+
+
 <div class="container login" style="color:blue">
-   
+ <h1>Welcome {{user}} </h1> 
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4"id="bank">
       <h4>Welcome to Sbk bank</h4><h5>Deposit Form</h5>
-        <form (ngSubmit)="deposit()">
+        <form [formGroup]="depositForm" (ngSubmit)="deposit()">
       
         <div class="form-group">
         
           <label for="exampleInputEmail1">Account Number</label>
-          <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
-            placeholder="Enter Account no"  [(ngModel)]="acno" name="acno">
-           
+          <input type="text" class="form-control btn1" id="accno" aria-describedby="emailHelp"
+            placeholder="Enter Account no" formControlName="acno"  name="accno">
+            <div *ngIf="(this.depositForm.get('acno')?.touched || this.depositForm.get('acno')?.dirty) && (this.depositForm.get('acno')?.errors)" class="errors">Invalid Account number</div> 
+
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control btn1" [(ngModel)]="pwd" id="pwd" placeholder="Password" name="pwd" ><br>
+          <input type="password" class="form-control btn1" formControlName="pwd" id="pswd" placeholder="Password" name="pswd" ><br>
+          <div *ngIf="(this.depositForm.get('pwd')?.touched||this.depositForm.get('pwd')?.dirty) && (this.depositForm.get('pwd')?.errors)" class="errors">Invalid Password</div> 
+
             <label >Amount</label>
-            <input type ="text" class="form-control btn1" name="amt"  [(ngModel)]="amt"><br>    
-       
+            <input type ="text" class="form-control btn1" name="amt"  formControlName="amt"><br>    
+                 <div *ngIf="(this.depositForm.get('amt')?.touched||this.depositForm.get('amt')?.dirty) && (this.depositForm.get('amt')?.errors)" class="errors">Invalid Amount</div> 
+
         <input type="submit" class="btn btn-primary" value="Deposit" style="width:300px;" ><br>
         
        
@@ -27,26 +33,30 @@
     </div>
  
 </div>
- <div>........................</div>
+ <div></div>
 <div class="container" style="color:blue" >
    
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4"id="bank">
       <h4>Welcome to Sbk bank</h4><h5>Withdraw Form</h5>
-        <form (ngSubmit)="withdraw()">
+        <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
       
         <div class="form-group">
         
           <label for="exampleInputEmail1">Account Number</label>
           <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
-            placeholder="Enter Account no"  [(ngModel)]="wacno" name="acno">
-           
+          placeholder="Enter Account no"  formControlName="wacno" name="acno">
+          <div *ngIf="(this.withdrawForm.get('wacno')?.touched || this.withdrawForm.get('wacno')?.dirty) && (this.withdrawForm.get('wacno')?.errors)" class="errors">Invalid Account number</div> 
+
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control btn1" [(ngModel)]="w pwd" id="wpwd" placeholder="Password" name="pwd" ><br>
-            <label >Amount</label>
-            <input type ="text" class="form-control btn1" name="amt"  [(ngModel)]="wamt"><br>    
-       
+          <input type="password" class="form-control btn1" formControlName="wpwd" id="wpwd" placeholder="Password" name="pwd" ><br>
+          <div *ngIf="(this.withdrawForm.get('wpwd')?.touched || this.withdrawForm.get('wpwd')?.dirty) && (this.withdrawForm.get('wpwd')?.errors)" class="errors">Invalid Password</div> 
+ 
+          <label >Amount</label>
+          <input type ="text" class="form-control btn1" name="amt"  formControlName="wamt"><br>    
+          <div *ngIf="(this.withdrawForm.get('wamt')?.touched || this.withdrawForm.get('wamt')?.dirty) && (this.withdrawForm.get('wamt')?.errors)" class="errors">Invalid Amount</div> 
+
         <input type="submit" class="btn btn-primary" value="Withdraw" style="width:300px;" ><br>
         
        
