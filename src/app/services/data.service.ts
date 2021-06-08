@@ -10,13 +10,44 @@ export class DataService {
     1001: { name:"vijay",accno: 1001, password: "usertwo", amount: 3000 },
     1002: { name:"sajay", accno: 1002, password: "userthree", amount: 1000 }
 }
-  constructor() { }
+  constructor() {
+
+    this.getDetails();
+
+   }
+
+// store permanent data from database and login currentuser  to local stoage, savedetail func is created
+saveDetails(){
+  if(this.userdata){
+    localStorage.setItem("userdata",JSON.stringify(this.userdata))
+   }
+  
+  if (this.currentuser){
+    localStorage.setItem("currentuser",JSON.stringify(this.currentuser))
+    }
+}
+  
+//get data from localstorage
+getDetails(){
+  if (localStorage.getItem("userdata")){
+    this.userdata=JSON.parse(localStorage.getItem("userdata") || '')
+  }
+  if (localStorage.getItem("currentuser")){
+    this.currentuser =JSON.parse(localStorage.getItem("currentuser") || '')
+    }
+  
+
+}
+
+
+
 
   login(accno:any,pswd:any){
     let dataset = this.userdata
     if (accno in dataset){
       if (pswd == dataset[accno]["password"]){
         this.currentuser = dataset[accno]["name"]
+        this.saveDetails();
         return true;
       }
       else{
@@ -45,6 +76,7 @@ export class DataService {
           amount:0
         }
         //alert("Successfully Registered......")
+        this.saveDetails();
         return true;
        }
     
@@ -57,6 +89,7 @@ export class DataService {
     if (accno in dataset){
       if (pswd == dataset[accno]["password"]){
         dataset[accno]["amount"]+= amount
+        this.saveDetails();
         return dataset[accno]["amount"]
       }
       else{
@@ -78,6 +111,7 @@ export class DataService {
       if (pwd ==  dataset[accno]["password"]){
         if (amount<dataset[accno]["amount"]){
           dataset[accno]["amount"]-= amount
+          this.saveDetails();
           return dataset[accno]["amount"]
         }
         else{
