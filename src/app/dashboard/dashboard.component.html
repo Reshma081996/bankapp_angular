@@ -1,7 +1,7 @@
 
 
 <div class="container login" style="color:blue">
- <h1>Welcome {{user}} </h1> 
+ <h1 id="text">Welcome {{user}} </h1> 
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4"id="bank">
@@ -28,12 +28,13 @@
        
       </div>
     </form>
+    
     </div>
       <div class="col-4"></div>
     </div>
  
-</div>
- <div></div>
+</div><br><br>
+ 
 <div class="container" style="color:blue" >
    
     <div class="row">
@@ -42,7 +43,7 @@
       <h4>Welcome to Sbk bank</h4><h5>Withdraw Form</h5>
         <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
       
-        <div class="form-group">
+        <div class="form-group grp">
         
           <label for="exampleInputEmail1">Account Number</label>
           <input type="text" class="form-control btn1" id="acno" aria-describedby="emailHelp"
@@ -58,12 +59,23 @@
           <div *ngIf="(this.withdrawForm.get('wamt')?.touched || this.withdrawForm.get('wamt')?.dirty) && (this.withdrawForm.get('wamt')?.errors)" class="errors">Invalid Amount</div> 
 
         <input type="submit" class="btn btn-primary" value="Withdraw" style="width:300px;" ><br>
-        
-       
-      </div>
+         </div>
     </form>
-    </div>
+
+ 
       <div class="col-4"></div>
+    <br><br><br><br>
+
+      <app-delete-confirmation (onDelete)="onDelete($event)"  [item]="acno"></app-delete-confirmation>
+  
+      <div id ="inpt">
+       
+      <input type="submit" class="btn btn-danger" value="Delete" (click)="deleteAcc()" style="width:300px;" ><br>
     </div>
+    </div>
+  
+   
+
 
 </div>
+

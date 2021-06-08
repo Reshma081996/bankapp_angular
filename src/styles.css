@@ -8,11 +8,13 @@
 
 #bank{
     position: relative;
-    top:85px;
+    top:75px;
     background-color:chartreuse; 
     padding: 44px;
     font-family:'Times New Roman', Times, serif;
     font-style: italic;
+    width: 420px;
+    height: 460px;
    
 }
 

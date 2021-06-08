@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 //  wamt="";
 
 user=this.dataService.currentuser
-
+acno=""
 depositForm=this.fb.group({
 
   acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
@@ -71,5 +71,12 @@ withdrawForm=this.fb.group({
   }
   else{alert("Invalid Form")}
   
- }
 }
+deleteAcc(){
+  this.acno=this.dataService.currentacc
+}
+onDelete(event:any){
+  alert("parent" +event)
+}
+}
+ 

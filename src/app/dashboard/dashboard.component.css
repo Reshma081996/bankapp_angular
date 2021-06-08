@@ -1,3 +1,16 @@
 .errors{
     color:red;
 }
+#text{
+    position:relative;
+    top:50px;
+    color:purple;
+    text-align:center;
+}
+
+#inpt{
+    position:relative;
+    top:30px;
+    
+}
+

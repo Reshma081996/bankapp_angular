@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
   currentuser=""
+  currentacc=""
   userdata:any = {
     1000: { name:"ajay", accno: 1000, password: "userone", amount: 5000 },
     1001: { name:"vijay",accno: 1001, password: "usertwo", amount: 3000 },
@@ -18,13 +19,16 @@ export class DataService {
 
 // store permanent data from database and login currentuser  to local stoage, savedetail func is created
 saveDetails(){
-  if(this.userdata){
+  
     localStorage.setItem("userdata",JSON.stringify(this.userdata))
-   }
+   
   
   if (this.currentuser){
     localStorage.setItem("currentuser",JSON.stringify(this.currentuser))
     }
+  if (this.currentacc){
+    localStorage.setItem("currentacc",JSON.stringify(this.currentacc))
+  }
 }
   
 //get data from localstorage
@@ -35,18 +39,18 @@ getDetails(){
   if (localStorage.getItem("currentuser")){
     this.currentuser =JSON.parse(localStorage.getItem("currentuser") || '')
     }
-  
+  if (localStorage.getItem("currentacc")){
+  this.currentacc =JSON.parse(localStorage.getItem("currentacc") || '')}
 
 }
-
-
 
 
   login(accno:any,pswd:any){
     let dataset = this.userdata
     if (accno in dataset){
       if (pswd == dataset[accno]["password"]){
-        this.currentuser = dataset[accno]["name"]
+        this.currentuser = dataset[accno]["name"] 
+        this.currentacc = accno
         this.saveDetails();
         return true;
       }
