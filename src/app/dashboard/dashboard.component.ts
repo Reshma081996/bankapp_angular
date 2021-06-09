@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -34,7 +35,7 @@ withdrawForm=this.fb.group({
 
 })
 
-  constructor(private dataService:DataService,private fb:FormBuilder) { }
+  constructor(private dataService:DataService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -71,12 +72,24 @@ withdrawForm=this.fb.group({
   }
   else{alert("Invalid Form")}
   
-}
+} 
 deleteAcc(){
   this.acno=this.dataService.currentacc
 }
 onDelete(event:any){
-  alert("parent" +event)
+  //alert("parent" +event)
+const result = this.dataService.deleteAccDetails(event)
+if(result){
+  alert("Account deleted successfully")
+  this.router.navigateByUrl("");
 }
+else{
+  alert("Operation Denied")
+}
+}
+onCancel(){
+  this.acno=""
+}
+
 }
  

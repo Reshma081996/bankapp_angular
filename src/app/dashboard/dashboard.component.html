@@ -5,10 +5,11 @@
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4"id="bank">
-      <h4>Welcome to Sbk bank</h4><h5>Deposit Form</h5>
+      <div [ngClass]="acno? 'deleteStyle' : '' " class="main">
+      <h4>Welcome to Sbk bank</h4><h5 appHighlight >Deposit Form</h5>
         <form [formGroup]="depositForm" (ngSubmit)="deposit()">
       
-        <div class="form-group">
+        <div    class="form-group">
         
           <label for="exampleInputEmail1">Account Number</label>
           <input type="text" class="form-control btn1" id="accno" aria-describedby="emailHelp"
@@ -29,7 +30,7 @@
       </div>
     </form>
     
-    </div>
+    </div></div>
       <div class="col-4"></div>
     </div>
  
@@ -40,7 +41,8 @@
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4"id="bank">
-      <h4>Welcome to Sbk bank</h4><h5>Withdraw Form</h5>
+      <div [ngClass]="acno? 'deleteStyle' : '' " class="main">
+      <h4>Welcome to Sbk bank</h4><h5 appHighlight>Withdraw Form</h5>
         <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
       
         <div class="form-group grp">
@@ -60,13 +62,13 @@
 
         <input type="submit" class="btn btn-primary" value="Withdraw" style="width:300px;" ><br>
          </div>
-    </form>
+    </form></div>
 
  
       <div class="col-4"></div>
     <br><br><br><br>
 
-      <app-delete-confirmation (onDelete)="onDelete($event)"  [item]="acno"></app-delete-confirmation>
+      <app-delete-confirmation (onDelete)="onDelete($event)"  (onCancel)="onCancel()" [item]="acno"></app-delete-confirmation>
   
       <div id ="inpt">
        

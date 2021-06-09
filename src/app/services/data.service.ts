@@ -44,6 +44,20 @@ getDetails(){
 
 }
 
+deleteAccDetails(acno:any){
+  if (this.currentacc == acno )
+  {
+    localStorage.removeItem("currentacc")
+    this.saveDetails()
+    return true
+  
+  }
+  else{
+    return false
+  }
+
+
+}
 
   login(accno:any,pswd:any){
     let dataset = this.userdata
