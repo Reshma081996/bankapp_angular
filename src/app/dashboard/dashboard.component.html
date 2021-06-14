@@ -2,6 +2,12 @@
 
 <div class="container login" style="color:blue">
  <h1 id="text">Welcome {{user}} </h1> 
+ <h5> Login at (unformated): {{lDate}}</h5>
+ <h5> Login at (formated): {{lDate | date}}</h5>
+ <h5> Login at (formated): {{lDate | date |uppercase}}</h5>
+ <h5> Login at (formated): {{lDate |date:'shortDate'}}</h5><br>
+ <app-animation-demo> </app-animation-demo>
+
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4"id="bank">

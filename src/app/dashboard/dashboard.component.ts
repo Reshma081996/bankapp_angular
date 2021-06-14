@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
 
 user=this.dataService.currentuser
 acno=""
+
+lDate : Date = new Date ();
 depositForm=this.fb.group({
 
   acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
@@ -27,7 +29,7 @@ depositForm=this.fb.group({
 
 })
 
-withdrawForm=this.fb.group({
+withdrawForm=this.fb.group({ 
 
   wacno:['',[Validators.required,Validators.pattern('[0-9]*')]],
   wpwd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
@@ -90,6 +92,6 @@ else{
 onCancel(){
   this.acno=""
 }
-
+   
 }
  
