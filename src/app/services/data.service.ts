@@ -1,3 +1,4 @@
+//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,6 +12,8 @@ export class DataService {
     1001: { name:"vijay",accno: 1001, password: "usertwo", amount: 3000 },
     1002: { name:"sajay", accno: 1002, password: "userthree", amount: 1000 }
 }
+//constructor(private http:HttpClient) {}
+
   constructor() {
 
     this.getDetails();
@@ -81,6 +84,14 @@ deleteAccDetails(acno:any){
 
 
   register(name:any,accno:any,password:any){
+
+//how to pass data from clientside to server through api
+    // const data={
+    //   name,
+    //   accno,
+    //   password,
+    // }
+    // this.http.post("https://localhost:3000/register",data)
     let dataset = this.userdata;
     if (accno in dataset) {
       //alert("Account already exists!!!!!! Please logged in") 
