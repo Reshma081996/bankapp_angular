@@ -32,6 +32,6 @@ isOpen=true;
   ngOnInit(): void {
   }
   toggle(){
-    this.isOpen = ! this.isOpen
+    this.isOpen =! this.isOpen
   }
 }

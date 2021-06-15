@@ -1,0 +1,137 @@
+Angular
+.............................................................................................................................................................
+mobile/desktop app create chaiyan vendi ula userinterface framework, built on javascript language.
+
+installation
+1.
+node -v (greater than 10)
+npm -v
+2.vscode
+3.language (javascript hav flaws,typesupport ila), typescript(support type, inheritance,interface)
+typecript-superset of javascript , in additim it has certain features like inheritance,interface
+for large scale application we use typescript and typescript-opensource langauage and manintained by microsoft
+
+    
+transpiling:typescripting converted to javscript before rendering and loading webpage
+
+4.angular cli  (comandline interface)
+angular applictaions/project run chaiyan vendi aa angular cli
+
+npm i -g @angular/cli@latest
+while installing angular cli.....typecript plus angular projects runavan ula elam features indavm athil 
+ 
+create angular project 
+ng new demo
+
+if have more pages, enable routing
+
+run application(inside demo): ng serve
+
+angular cli will create directory wid given nam and contain different folders such as typescript config files and testing files.
+
+1.browsersrclst: diff brwoser and app compactiblity.
+2.editor: which editor you are using to create application.
+3. .gitignore: ignore those files presnt in tat file having changes
+ git:watervr changes in application , this tool will help u to track tat changes.--->version control chaiyuna software tool
+ github: public repositories
+
+4.angular.json: angular cli config chaiyan ula file.
+
+5.karma.config.js: testing angular application
+6.package json:npm config files,appl run chaiynula third parties libararies elam ithilanulath.
+7.tsconfig.app.json,tsconfig.json,tsconfigspec, tslint:typescript config chaiyn use chaiyune
+ 
+e2e-end to end
+node modules:external files required for application
+src:inside app application erikune
+
+angular features
+1.based on components(lik a class:plan/blueprint and u can create n num of objects)
+2.angular projectm run avankekil oru root component :app.component.ts automatically created
+	root omponent : 1.view(app.component.html) 2.style (app.component.css)3.class(app.component.ts)
+
+app.component.ts
+
+decorator @: they are used to add additional features to component class
+export: aa claassin vere file use chaiynekil export it and then import in other class
+
+root component etha enn specify chaiyunal ahn app.module(applicationil use chaiyuna elam modulesm prnj kodukm)
+bootstrap:"rootcomponent"
+
+main.ts: first loaded file
+inside it bootstrapmodule(appmodule):>inside appmodule u have bootstrap :that will be rootcomponent.
+very first page runavunath index.html(view) which is menntioned in angular.json
+<body>ulil kodukanam app componete selector ne kond it)
+
+creatae new  component
+---------------------
+open terminal ng g c test
+
+Angular FeatURES
+------------------
+1.COMPONENT(root-appcomponent by default)
+2.MODULES(root-appmodule.ts by default)
+3.databinding (view $ component datas are get synchronised with the help of databinding)
+    1.onway binding -data flow only in one direction(component to view or view to component)
+		1.1.component to view ->1.1.1string interpolation databinding/interpolation  a var declared in component and fetch it view by this->{{expression}} in view
+                			1.1.2.PRoperty binding ->component property to b displyed in view's any elemt property
+					[binding-target]= "binding-source" ie [value]="account" inside views any elemt tag property , account="helo" ->inside classcomponent
+		
+   		1.2 view to component->
+			1.2.1 Event binding {event}="function call" functiom call  defined on correspondin component class
+			1.2.2	Event binding using $  ie {$event}: to get all values related to that event present on tag
+										(change)='accChange($event)' in hmlview
+							component calss-->	 accChange(event:any){}
+			1.2.3 TEMPLate reference variable
+
+   2.way binding (view to component and component to view in both direction occur simultaneouly)
+
+		2.1 Ngmodel-- defined in FormsModule(imprt in appmodule) syntax [(NgModel)]="variable" var declared in class must
+
+
+4.dependencies injection-> oru classinte instance vere oru classinte objectilek assign
+	very first func loaded in class is constructor
+	path settings - app routing modules (inside route array)
+5. services ->reusable code which serve certain purposes.
+ db in logincomponent is required in register component. hence create services folder inside src/app/
+ open bash/pannel and type->  ng g s data
+ views ilatha component aa services
+
+6.template driven :  design ur view html first
+7.model driven angular form : create model of the viewhtml on component class and then only design it -
+   7.1.reactive forms defined in third parties ,hence import in app module ->ReactiveFormsModule
+	3 things to create a reactive forms _>useful for validation
+		1.form group :create a instance of formbuilderclass only u can form grp
+		2. form array
+		3.form control
+8. angular directives
+	8.1 component directories->component properties use chaiyth view change chaiyam
+	8.2 structure directiores->htmlil  validators kodukum
+		*ngIf="condition"
+		 *ngFor
+		*ngSwitch->multiple condition
+	8.3 attribte directories->for styling
+		->inbuilt [ngClass]
+		->user defined
+
+
+9.local storage of web browser stores data in its memory
+->setItem (store data to local storage)
+->getItem
+->removeItem
+
+10.@input->parent child data sharing
+@output->child 2 parent data sharing
+
+11. Eventemitter
+
+12.Angular pipes || convert from one format to another
+
+13. ng build --prod
+
+http server create
+ npm i -g http-server
+
+run
+ http-server
+use first link to run on same machine.
